@@ -12,7 +12,7 @@
       <block wx:for="{{label}}" wx:for-item="item" wx:key="*this">
         <van-tab title="{{item.title}}">
           <block wx:for="{{item.children}}" wx:for-item="e" wx:key="*this">
-            <van-cell title="{{e.title}}" data-url="{{e.naviUrl}}" is-link bindtap="naviTo" label="描述信息" border="{{ false }}" />
+            <van-cell title="{{e.title}}" data-title="{{e.title}}" is-link bindtap="naviTo" label="描述信息" border="{{ false }}" />
           </block>
         </van-tab>
       </block>

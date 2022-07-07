@@ -77,7 +77,12 @@ Page({
         ]
       },]
   },
-
+  naviTo(e) {
+    let {currentTarget: {dataset: {title}}} = e
+    wx.navigateTo({
+      url: `../detail/detail?title=${title}`,
+    })
+  },
   onLoad: function (options) {
 
   },

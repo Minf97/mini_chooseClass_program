@@ -1,2 +1,11 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="container">
+  <van-cell title-class="title-class" title="{{title}}" border="{{ false }}" />
+  <van-divider custom-class="divider" />
+  <van-cell title-class="title-class-info" title="课程信息" border="{{ false }}" />
+  <van-divider custom-class="divider" />
+
+  <view class="body">
+    具体信息
+  </view>
+  <van-button custom-class="btn" round type="info">圆形按钮</van-button>
+</view>
