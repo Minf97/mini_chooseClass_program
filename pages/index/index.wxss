@@ -1,0 +1,17 @@
+.head {
+  position: fixed;
+  z-index: 2;
+}
+.titleImg {
+  width: 100%;
+  height: 400rpx;
+}
+.popView {
+  position: absolute;
+  top: 350rpx;
+  width: 100%;
+  /* background-color: pink; */
+  z-index: 10;
+  border-radius: 50rpx 50rpx 0 0;
+  overflow: hidden;
+}

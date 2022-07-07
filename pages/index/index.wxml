@@ -1,0 +1,21 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;">
+    <!-- 状态栏 -->
+    <view style="height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="head_second" style="height: {{lineHeight}}px;" />
+  </view>
+  <image src="../../images/green.png" mode="aspectFill" class="titleImg"></image>
+  <view class="popView">
+    <van-tabs active="{{ active }}" bind:change="onChange">
+      <block wx:for="{{label}}" wx:for-item="item" wx:key="*this">
+        <van-tab title="{{item.title}}">
+          <block wx:for="{{item.children}}" wx:for-item="e" wx:key="*this">
+            <van-cell title="{{e.title}}" data-url="{{e.naviUrl}}" is-link bindtap="naviTo" label="描述信息" border="{{ false }}" />
+          </block>
+        </van-tab>
+      </block>
+    </van-tabs>
+  </view>
+</view>
