@@ -1,0 +1,39 @@
+/* pages/chooseClass/chooseClass.wxss */
+.container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.title-class {
+  font-size: 35rpx;
+  color: rgb(89, 128, 106);
+  letter-spacing: 5rpx;
+  font-weight: 500;
+  margin: 25rpx 0;
+}
+.divider {
+  margin: 0 !important;
+}
+.body {
+  position: absolute;
+  bottom: 0;
+  top: 92px;
+  width: 100%;
+  min-height: 100%;
+}
+.btn{ 
+  float:right;
+  width:30%;
+  background-color: rgb(69, 129, 93) !important;
+  border: 0 !important;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-right:20px;
+}
+.date_cell{
+  float:left;
+}
+.clear{
+  clear:both;
+  height:0;
+}
