@@ -1,2 +1,26 @@
-<!--pages/curriculum/curriculum.wxml-->
-<text>pages/curriculum/curriculum.wxml</text>
+<view class="container">
+  <!-- 周 -->
+  <view class="week">
+    <view class="week_block" wx:for="{{['一','二','三','四','五']}}" wx:key="*this">
+      <view class="title">{{item}}</view>
+      <view class="date {{date[index].date == today.date ? 'strongDate' : ''}}">{{date[index].date}}</view>
+    </view>
+  </view>
+  <!-- 周end -->
+
+  <view style="width: 100%;min-height: 100vh; position: relative;" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <!-- 节数 -->
+    <view class="left">
+      <view class="leftItem" wx:for="{{left}}" wx:key="*this">
+        <view class="title">{{index+1}}</view>
+        <view class="date">{{item}}</view>
+      </view>
+    </view>
+    <!-- 节数end -->
+    <view class="body">
+      <block wx:for="{{class}}" wx:key="*this">
+        <view class="card" style="background-color: {{color[index%3]}}; left: {{(item.weekDay-1)*65}}px; top: {{10+(item.timeIndex-1)*220}}rpx;"></view>
+      </block>
+    </view>
+  </view>
+</view>

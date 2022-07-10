@@ -1,1 +1,61 @@
-/* pages/curriculum/curriculum.wxss */
+.week {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100rpx;
+}
+.week_block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5rpx;
+}
+.title {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.date {
+  font-size: 23rpx;
+  color: rgb(139, 139, 139);
+}
+.strongDate {
+  font-weight: 700;
+  color: #E5404F;
+}
+
+
+.left {
+  width: 100rpx;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.leftItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110rpx;
+}
+
+.body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100rpx;
+  /* background-color: green; */
+}
+.card {
+  position: absolute;
+  width: 61px;
+  height: 212rpx;
+  border-radius: 10rpx;
+  /* opacity: 0; */
+}

@@ -1,18 +1,47 @@
-// pages/myself/myself.js
+const avatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const nickname = 'XQL柴犬'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    statusBarHeight: getApp().globalData.statusBarHeight,
+    lineHeight: getApp().globalData.lineHeight,
+    rectHeight: getApp().globalData.rectHeight,
+    windowHeight: getApp().globalData.windowHeight,
+    pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
+    active: 0,
 
+
+    avatarUrl: avatarUrl,
+    nickname: nickname,
+    myPub: [
+      {
+        src: '/miniprogram/images/green.png',
+        title: '管理部门（财务部等）',
+        text: '资产名称',
+        price: '20',
+        tag: '资产类别（柜式空调等）'
+      },
+      {
+        src: '/miniprogram/images/green.png',
+        title: '管理部门（财务部等）',
+        text: '资产名称',
+        price: '130',
+        tag: '资产类别（柜式空调等）'
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      avatarUrl: wx.getStorageSync('avatar') || avatarUrl,
+      nickname: wx.getStorageSync('nickname') || nickname
+    })
   },
 
   /**

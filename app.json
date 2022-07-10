@@ -4,7 +4,8 @@
     "pages/curriculum/curriculum",
     "pages/myself/myself",
     "pages/logs/logs",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

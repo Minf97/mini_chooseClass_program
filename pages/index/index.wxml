@@ -8,11 +8,11 @@
   </view>
   <image src="../../images/green.png" mode="aspectFill" class="titleImg"></image>
   <view class="popView">
-    <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tabs active="{{ active }}" bind:change="onChange" title-class="tabClass">
       <block wx:for="{{label}}" wx:for-item="item" wx:key="*this">
         <van-tab title="{{item.title}}">
           <block wx:for="{{item.children}}" wx:for-item="e" wx:key="*this">
-            <van-cell title="{{e.title}}" data-title="{{e.title}}" is-link bindtap="naviTo" label="描述信息" border="{{ false }}" />
+            <van-cell title="{{e.title}}" custom-class="cellClass" data-title="{{e.title}}" is-link bindtap="naviTo" border="{{ false }}" />
           </block>
         </van-tab>
       </block>

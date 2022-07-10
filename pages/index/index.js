@@ -9,70 +9,58 @@ Page({
 
     label: [
       {
-        title: '美术书法',
+        title: '小低阅读协作',
         children: [
           {
-            title: '美学工作室',
-            naviUrl: ''
+            title: '一对一',
           },
           {
-            title: '创想大师班',
-            naviUrl: ''
+            title: '十二人小班',
           },
           {
-            title: '国际动漫A班',
-            naviUrl: ''
+            title: '百人大班',
           }
         ]
       },
       {
-        title: '舞蹈',
+        title: '小中阅读协作',
         children: [
           {
-            title: '舞蹈1',
-            naviUrl: ''
+            title: '一对一',
           },
           {
-            title: '舞蹈2',
-            naviUrl: ''
+            title: '十二人小班',
           },
           {
-            title: '舞蹈3',
-            naviUrl: ''
+            title: '百人大班',
           }
         ]
       },
       {
-        title: '阅读语言',
+        title: '小高阅读协作',
         children: [
           {
-            title: '舞蹈1',
-            naviUrl: ''
+            title: '一对一',
           },
           {
-            title: '舞蹈2',
-            naviUrl: ''
+            title: '十二人小班',
           },
           {
-            title: '舞蹈3',
-            naviUrl: ''
+            title: '百人大班',
           }
         ]
       },
       {
-        title: '特色课',
+        title: '初中阅读协作',
         children: [
           {
-            title: '舞蹈1',
-            naviUrl: ''
+            title: '一对一',
           },
           {
-            title: '舞蹈2',
-            naviUrl: ''
+            title: '十二人小班',
           },
           {
-            title: '舞蹈3',
-            naviUrl: ''
+            title: '百人大班',
           }
         ]
       },]

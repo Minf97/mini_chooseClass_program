@@ -13,6 +13,13 @@
           "query": "title='美学工作室'",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "课程表",
+          "pathName": "pages/curriculum/curriculum",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

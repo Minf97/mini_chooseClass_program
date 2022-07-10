@@ -15,3 +15,9 @@
   border-radius: 50rpx 50rpx 0 0;
   overflow: hidden;
 }
+.cellClass {
+  margin: 20rpx 0;
+}
+.tabClass {
+  font-size: 25rpx !important;
+}
