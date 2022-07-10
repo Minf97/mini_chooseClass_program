@@ -1,0 +1,22 @@
+<!--pages/chooseClass/chooseClass.wxml-->
+<view class="container">
+  <van-cell title-class="title-class" title="{{title}}" border="{{ false }}" />
+  <van-divider custom-class="divider" />
+
+  <view class="body">
+    <van-tabs active="{{ active }}" bind:change="onChange"  title-active-color="rgb(69, 129, 93)" color="rgb(69, 129, 93)">
+      <block wx:for="{{arr.label}}" wx:for-item="d" wx:key="*this">
+        <van-tab class="van_" title="{{d.head}}">
+          <block wx:for="{{d.children}}" wx:for-item="e" wx:key="*this">
+            <view>
+              <van-cell title="{{e.date}}" data-title="{{e.date}}" bindtap="naviTo" label="{{e.class}}" border="{{ false }}" class="date_cell" />
+              <van-button custom-class="btn" round type="info" bind:click="naviToApply">报名</van-button>
+              <view class="clear"></view>
+            </view>
+          </block>
+        </van-tab>
+      </block>
+    </van-tabs>
+  </view>
+
+</view>
