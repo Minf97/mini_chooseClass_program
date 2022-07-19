@@ -5,7 +5,10 @@
     "pages/myself/myself",
     "pages/logs/logs",
     "pages/detail/detail",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/chooseClass/chooseClass",
+    "pages/admin/admin",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

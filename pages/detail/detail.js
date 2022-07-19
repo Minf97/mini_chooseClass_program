@@ -1,71 +1,33 @@
-// pages/detail/detail.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
-    title: '',
+    data: '',
+    idx: '',
+    _id: '',
+    args: []
   },
 
   naviToChoose(e) {
+    let jsonStr = JSON.stringify(this.data.data.children[this.data.idx]);
+    let data = encodeURIComponent(jsonStr);
+
+    let {idx, _id} = this.data
     wx.navigateTo({
-      url: 'url',
+      url: `../chooseClass/chooseClass?data=${data}&idx=${idx}&_id=${_id}`,
     })
   },
+
   onLoad(options) {
-    console.log(options);
+    let data = JSON.parse(decodeURIComponent(options.data)) 
+    let {idx, _id} = options
     this.setData({
-      title: options.title
+      data,
+      idx,
+      _id
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

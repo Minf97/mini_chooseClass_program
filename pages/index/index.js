@@ -7,75 +7,47 @@ Page({
     windowHeight: getApp().globalData.windowHeight,
     pixelRatio: getApp().globalData.pixelRatio,     // rpx 与 px 的转换比例
 
-    label: [
-      {
-        title: '小低阅读协作',
-        children: [
-          {
-            title: '一对一',
-          },
-          {
-            title: '十二人小班',
-          },
-          {
-            title: '百人大班',
-          }
-        ]
-      },
-      {
-        title: '小中阅读协作',
-        children: [
-          {
-            title: '一对一',
-          },
-          {
-            title: '十二人小班',
-          },
-          {
-            title: '百人大班',
-          }
-        ]
-      },
-      {
-        title: '小高阅读协作',
-        children: [
-          {
-            title: '一对一',
-          },
-          {
-            title: '十二人小班',
-          },
-          {
-            title: '百人大班',
-          }
-        ]
-      },
-      {
-        title: '初中阅读协作',
-        children: [
-          {
-            title: '一对一',
-          },
-          {
-            title: '十二人小班',
-          },
-          {
-            title: '百人大班',
-          }
-        ]
-      },]
+    label: [],
+    active: 1,
   },
+
   naviTo(e) {
-    let {currentTarget: {dataset: {title}}} = e
+    let {currentTarget: {dataset: {index, idx}}} = e;
+
+    let jsonStr = JSON.stringify(this.data.label[index]);
+    let data = encodeURIComponent(jsonStr);
+
+    let _id = this.data.label[index]._id
     wx.navigateTo({
-      url: `../detail/detail?title=${title}`,
+      url: `../detail/detail?data=${data}&idx=${idx}&_id=${_id}`,
     })
   },
+
   onLoad: function (options) {
-
+    this.getArgs();
   },
-  onReady: function () {
 
+  getArgs(e) {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'api',
+      data: {
+        type: 'getArgs'
+      },
+      success(res) {
+        console.log(res);
+        let {result: {data}} = res;
+        wx.setStorageSync('args', data)
+        that.setData({
+          label: data
+        })
+        
+      }
+    })
+  },
+
+  onChange(e) {
+    console.log(e);
   },
 
   onShow: function () {

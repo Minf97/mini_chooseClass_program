@@ -1,1 +1,46 @@
-/* pages/login/login.wxss */
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  /* margin-top: 40px; */
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+.avatarBox {
+  padding-top: 40px;
+}
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: rgb(243, 243, 243);
+}
+.box {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+label {
+  margin-right: 20rpx;
+}
+van-button {
+  /* margin-top: 100rpx; */
+  /* position: absolute;
+  left: 50%;
+  transform: translate(-50%,0); */
+}
+.btnBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.vanbtn {
+  width: 300px !important;
+}

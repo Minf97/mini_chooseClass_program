@@ -20,6 +20,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "选课",
+          "pathName": "pages/chooseClass/chooseClass",
+          "query": "title=美学工作室",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "管理员模式",
+          "pathName": "pages/admin/admin",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

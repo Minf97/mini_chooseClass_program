@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .title-class {
   font-size: 35rpx;
   color: rgb(89, 128, 106);
@@ -11,9 +12,11 @@
   font-weight: 500;
   margin: 25rpx 0;
 }
+
 .divider {
   margin: 0 !important;
 }
+
 .body {
   position: absolute;
   bottom: 0;
@@ -21,19 +24,22 @@
   width: 100%;
   min-height: 100%;
 }
-.btn{ 
-  float:right;
-  width:30%;
+
+.btn {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 20%;
+  height: 50% !important;
   background-color: rgb(69, 129, 93) !important;
   border: 0 !important;
   letter-spacing: 2px;
-  margin-top: 10px;
-  margin-right:20px;
+  transform: translate(0, 50%);
+  margin-right: 20rpx;
 }
-.date_cell{
-  float:left;
-}
-.clear{
-  clear:both;
-  height:0;
+
+.box {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 }

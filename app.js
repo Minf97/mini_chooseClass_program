@@ -14,7 +14,18 @@ App({
         traceUser: true,
       });
     }
-
+    if(!wx.getStorageSync('user')) {
+      wx.showModal({
+        content: '请先登录',
+        success(res) {
+          if(res.confirm) {
+            wx.navigateTo({
+              url: '../login/login',
+            })
+          }
+        }
+      })
+    }
     let rect = wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : null;
     // 获取设备信息
     wx.showLoading({

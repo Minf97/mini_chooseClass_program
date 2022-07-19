@@ -1,0 +1,45 @@
+<!-- 第一级 -->
+<van-collapse value="{{ activeNames }}" accordion bind:change="onChange1">
+  <block wx:for="{{args}}" wx:for-item="item_1" wx:key="*this" wx:for-index="index_1">
+    <van-collapse-item title="{{item_1.title}}" name="{{index_1}}">
+      <!-- 第二级 | 一对一/十人班/百人班 -->
+      <van-collapse value="{{ activeNames_secon }}" accordion border="{{false}}" bind:change="onChange2">
+        <block wx:for="{{item_1.children}}" wx:for-item="item_2" wx:for-index="index_2">
+          <van-collapse-item title="{{item_2.title}}" name="{{index_2}}">
+            <!-- 第三级 | 课程详情修改/选课预约修改 -->
+            <van-collapse value="{{ activeNames_third }}" accordion border="{{false}}" bind:change="onChange3">
+              <van-collapse-item title="课程详情修改" name="1">
+                <!-- 第四级 | 课程详情修改 -->
+                <van-collapse value="{{ activeNames_fourth_info }}" accordion border="{{false}}" bind:change="onChange4_info">
+                  <van-collapse-item title="{{item_2.info.subject_1}}" value="{{item_2.info.content_1}}" name="1"></van-collapse-item>
+                  <van-collapse-item title="{{item_2.info.subject_2}}" value="{{item_2.info.content_2}}" name="1"></van-collapse-item>
+                </van-collapse>
+              </van-collapse-item>
+
+              <van-collapse-item title="选课预约修改" name="2">
+                <!-- 第四级 | 选课预约修改 -->
+                <van-collapse value="{{ activeNames_fourth_time }}" accordion border="{{false}}" bind:change="onChange4_time">
+                  <block wx:for="{{item_2.time}}" wx:for-item="item_4_time" wx:for-index="index_4_time">
+                    <van-collapse-item title="{{item_4_time.week}}" name="{{index_4_time}}">
+                      <!-- 第五级 | 对应星期的预约信息修改 -->
+                      <van-collapse value="{{ activeNames_five }}" accordion border="{{false}}" bind:change="onChange5">
+                        <block wx:for="{{item_4_time.info}}" wx:for-item="item_5" wx:for-index="index_5">
+                          <van-collapse-item title="{{item_5.period}}" value="{{item_5.desc}}" name="{{index_5}}"></van-collapse-item>
+                        </block>
+                      </van-collapse>
+                    </van-collapse-item>
+                  </block>
+                </van-collapse>
+              </van-collapse-item>
+            </van-collapse>
+          </van-collapse-item>
+        </block>
+      </van-collapse>
+      <!-- 第二级end -->
+    </van-collapse-item>
+  </block>
+
+
+
+
+</van-collapse>

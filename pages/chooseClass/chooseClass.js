@@ -1,167 +1,132 @@
-// pages/chooseClass/chooseClass.js
+const util = require('../../utils/util')
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    title: '',
-    arr: [],
-    List: [{
-        title: '美学工作室',
-        label: [{
-            head: '周三',
-            children: [{
-                date: '17:30-19:00',
-                class: '基础4-5岁 （1次/周）'
-              },
-              {
-                date: '19:05-20:35',
-                class: '提高5-6岁 （1次/周）'
-              },
-            ]
-          },
-          {
-            head: '周四',
-            children: [{
-              date: '17:30-19:00',
-              class: '基础4-5岁 （1次/周）'
-            }]
-          },
-          {
-            head: '周五',
-            children: [{
-              date: '19:05-20:35',
-              class: '提高5-6岁 （1次/周）'
-            }, ]
-          },
-          {
-            head: '周六',
-            children: [{
-              date: '17:30-19:00',
-              class: '基础4-5岁 （1次/周）'
-            }, ]
-          },
-          {
-            head: '周日',
-            children: [{
-              date: '19:05-20:35',
-              class: '提高5-6岁 （1次/周）'
-            }, ]
-          }
-        ]
-      },
-      {
-        title: '创想大师班',
-        label: [{
-            head: '周四',
-            children: [{
-              date: '17:30-19:00',
-              class: '基础4-5岁 （1次/周）'
-            }]
-          },
-          {
-            head: '周五',
-            children: [{
-              date: '19:05-20:35',
-              class: '提高5-6岁 （1次/周）'
-            }, ]
-          },
-          {
-            head: '周六',
-            children: [{
-              date: '17:30-19:00',
-              class: '基础4-5岁 （1次/周）'
-            }, ]
-          },
-          {
-            head: '周日',
-            children: [{
-              date: '19:05-20:35',
-              class: '提高5-6岁 （1次/周）'
-            }, ]
-          }
-        ]
-      }
-    ]
-  },
+    _id: '',
+    idx: '',
+    infoIdx: '',
+    timeIdx: '',
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+    data: [],
+    nickname: '',
+    username: '',
+    name_err: '',
+    username_err: '',
+    show: false
+  },
   onLoad: function (options) {
+    let data = JSON.parse(decodeURIComponent(options.data))
+    let { idx, _id } = options
     this.setData({
-      title: options.title
+      data,
+      idx,
+      _id,
+      username: wx.getStorageSync('user').username,
+      nickname: wx.getStorageSync('user').nickname
     });
-    this.choose();
   },
+  naviToApply: function (e) {
+    console.log(e);
+    let { currentTarget: { dataset: { infoidx, timeidx } } } = e;
+    console.log(infoidx);
+    this.setData({
+      show: !this.data.show,
+      infoIdx: infoidx,
+      timeIdx: timeidx
+    })
+  },
+  onConfirm(e) {
+    console.log(e);
+    let that = this,
+      data = this.data,
+      nickname = data.nickname,
+      username = data.username,
+      _id = data._id,
+      idx = data.idx,
+      timeIdx = data.timeIdx,
+      infoIdx = data.infoIdx;
 
-  choose: function () {
-    var that = this;
-    var list = that.data.List;
-    var j = 0;
-    while(j < list.length){
-      if(that.data.title == list[j].title){
-        var arr = list[j];
-        that.setData({
-          arr:arr
-        });
-        break;
-      };
-      j++;
+    let reserve = util.formatDate(new Date())
+
+    wx.showLoading({
+      title: '正在处理...',
+    })
+    if (!nickname.replace(/\s/g, "")) {
+      this.setData({
+        name_err: '名字不能为空'
+      })
+    } else if (!username.replace(/\s/g, "")) {
+      this.setData({
+        username_err: '学号不能为空'
+      })
+    } else {
+      wx.cloud.callFunction({
+        name: 'api',
+        data: {
+          type: 'reserve',
+          nickname,
+          username,
+          _id,
+          idx,
+          infoIdx,
+          timeIdx,
+          reserve
+        },
+        success(res) {
+          wx.hideLoading()
+          console.log(res.result);
+          switch (res.result) {
+            case '您已报名':
+              console.log(123);
+              wx.showToast({
+                title: '您已报名，不可重复报名',
+                icon: 'none'
+              })
+              break;
+            case '人数已满':
+              console.log(456);
+              wx.showToast({
+                title: '该班人数已满，不可报名',
+                icon: 'none'
+              })
+              break;
+            default:
+              console.log(789);
+              wx.showToast({
+                title: '报名成功！返回课表可查看',
+                icon: 'none'
+              })
+              break;
+          }
+          wx.cloud.callFunction({
+            name: 'api',
+            data: {
+              type: 'getuser',
+              username
+            },
+            success(res) {
+              let user = res.result.data[0]
+
+              wx.setStorageSync('user', user)
+            }
+          })
+        }
+      })
+      wx.hideLoading()
     }
-  },
-
-  naviToApply:function(){
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onClose(e) {
+    console.log(e);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  onChange(e) {
+    this.setData({
+      name_err: '',
+      username_err: ''
+    })
+  },
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
