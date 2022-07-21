@@ -1,15 +1,11 @@
 <view class="container">
-  <van-cell title-class="title-class" title="{{data.title}}" border="{{ false }}" />
+  <van-cell title-class="title-class" title="{{title}}" border="{{ false }}" />
   <van-divider custom-class="divider" />
   <van-cell title-class="title-class-info" title="课程信息" border="{{ false }}" />
   <van-divider custom-class="divider" />
 
   <view class="body">
-    <view class="headline">{{data.children[idx].title}}</view>
-    <view class="subject">{{data.children[idx].info.subject_1}}</view>
-    <view class="content">{{data.children[idx].info.content_1}}</view>
-    <view class="subject">{{data.children[idx].info.subject_2}}</view>
-    <view class="content">{{data.children[idx].info.content_2}}</view>
+    具体信息
   </view>
   <van-button custom-class="btn" round type="info" bind:click="naviToChoose">前往选课</van-button>
 </view>

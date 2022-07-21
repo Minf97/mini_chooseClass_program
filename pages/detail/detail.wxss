@@ -35,25 +35,3 @@
   background-color: rgb(69, 129, 93) !important;
   border: 0 !important;
 }
-
-/* 具体信息 样式 */
-.body {
-  width: 100%;
-  padding: 30rpx;
-  box-sizing: border-box;
-  font-size: 26rpx;
-  letter-spacing: 1rpx;
-}
-.headline {
-  font-size: 30rpx;
-  font-weight: 700;
-}
-.subject {
-  font-size: 28rpx;
-  font-weight: 700;
-  margin: 10rpx 0;
-}
-.content {
-  letter-spacing: 2rpx;
-  line-height: 52rpx;
-}

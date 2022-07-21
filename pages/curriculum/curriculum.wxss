@@ -58,8 +58,4 @@
   height: 212rpx;
   border-radius: 10rpx;
   /* opacity: 0; */
-  padding: 20rpx;
-  box-sizing: border-box;
-  font-size: 25rpx;
-  color: #fff;
 }

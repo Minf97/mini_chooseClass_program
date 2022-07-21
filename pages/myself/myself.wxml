@@ -1,13 +1,16 @@
 <view class="container">
-  <view class="avatarBox">
-    <image class="avatar" src="{{user.avatarUrl}}"></image>
+  <!-- 头像 -->
+  <view class="userInfo">
+    <view class="avatar">
+      <navigator url="../login/login" style="display: flex; flex-direction: row;align-items: center;">
+        <image src="{{avatarUrl}}" mode="aspectFill"></image>
+        <view class="avatarText">
+          <view class="nickname">{{nickname}}</view>
+          <view class="user">采购部</view>
+          <image src="../../images/myself/right.png" class="imageRight"></image>
+        </view>
+      </navigator>
+    </view>
   </view>
 
-  <van-cell-group inset>
-    <van-cell title="学号：" is-link value="{{user.username}}" border="{{ false }}" bindtap="login" />
-    <van-cell title="密码：" is-link value="{{user.password}}" border="{{ false }}" bindtap="login" />
-    <van-cell title="姓名：" is-link value="{{user.nickname}}" border="{{ false }}" bindtap="login" />
-  </van-cell-group>
-
-  <van-toast id="van-toast" />
 </view>

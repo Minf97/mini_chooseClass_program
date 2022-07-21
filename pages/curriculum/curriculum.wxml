@@ -19,9 +19,7 @@
     <!-- 节数end -->
     <view class="body">
       <block wx:for="{{class}}" wx:key="*this">
-        <view class="card" style="background-color: {{color[index%3]}}; left: {{(item.week-1)*65}}px; top: {{10+(item.period)*220}}rpx;">
-          {{item.headline}} @ {{item.subject}}
-        </view>
+        <view class="card" style="background-color: {{color[index%3]}}; left: {{(item.weekDay-1)*65}}px; top: {{10+(item.timeIndex-1)*220}}rpx;"></view>
       </block>
     </view>
   </view>

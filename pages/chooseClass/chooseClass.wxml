@@ -1,16 +1,17 @@
 <!--pages/chooseClass/chooseClass.wxml-->
 <view class="container">
-  <van-cell title-class="title-class" title="{{data.title}}" border="{{ false }}" />
+  <van-cell title-class="title-class" title="{{title}}" border="{{ false }}" />
   <van-divider custom-class="divider" />
 
   <view class="body">
-    <van-tabs active="{{ active }}" bind:change="onChange" title-active-color="rgb(69, 129, 93)" color="rgb(69, 129, 93)">
-      <block wx:for="{{data.time}}" wx:for-item="item" wx:for-index="timeIdx" wx:key="*this">
-        <van-tab class="van_" title="{{item.week}}">
-          <block wx:for="{{item.info}}" wx:for-item="e" wx:for-index="infoIdx" wx:key="*this">
-            <view style="position: relative;">
-              <van-cell title="{{e.period}}" data-title="{{e.period}}" bindtap="naviTo" label="{{e.desc}}" border="{{ false }}" class="date_cell" />
-              <van-button custom-class="btn" data-infoIdx="{{infoIdx}}" data-timeIdx="{{timeIdx}}" round type="info" bind:click="naviToApply">报名</van-button>
+    <van-tabs active="{{ active }}" bind:change="onChange"  title-active-color="rgb(69, 129, 93)" color="rgb(69, 129, 93)">
+      <block wx:for="{{arr.label}}" wx:for-item="d" wx:key="*this">
+        <van-tab class="van_" title="{{d.head}}">
+          <block wx:for="{{d.children}}" wx:for-item="e" wx:key="*this">
+            <view>
+              <van-cell title="{{e.date}}" data-title="{{e.date}}" bindtap="naviTo" label="{{e.class}}" border="{{ false }}" class="date_cell" />
+              <van-button custom-class="btn" round type="info" bind:click="naviToApply">报名</van-button>
+              <view class="clear"></view>
             </view>
           </block>
         </van-tab>
@@ -19,12 +20,3 @@
   </view>
 
 </view>
-
-<van-dialog use-slot title="报名" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="onConfirm">
-  <view class="box">
-    <van-field label="学号：" model:value="{{ username }}" error-message="{{username_err}}" placeholder="请输入学号" border="{{ false }}" bind:change="onChange" />
-    <van-field label="姓名：" model:value="{{ nickname }}" error-message="{{name_err}}" placeholder="请输入名字" border="{{ false }}" bind:change="onChange" />
-  </view>
-
-</van-dialog>
-<van-toast id="van-toast" />
